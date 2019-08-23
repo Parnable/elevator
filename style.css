@@ -1,0 +1,62 @@
+.panel {
+    padding: 20px;
+    margin: 15px;
+    border: 2px black;
+    border-radius: 15px;
+    width: 250px;
+    text-align: center;
+}
+
+.floor-buttons {
+
+}
+
+.menu-buttons {
+
+}
+
+.button {
+    background-color: gray;
+    border: none;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    border-radius: 50%;
+    min-width: 100px;
+    min-height: 100px;
+}
+
+.left{
+    float: left;
+}
+
+.right{
+    float: right;
+}
+
+.button-go {
+    background: green;
+}
+
+.button-stop {
+    background: red;
+}
+
+.active {
+    border-color: blue;
+    border-style: solid;
+}
+
+.progress {
+    border-color: blue white;
+    border-style: solid;
+}
+
+.destination {
+    border-color: yellow white;
+    border-style: solid;
+}

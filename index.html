@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <title>Elevator test for Vaimo</title>
+</head>
+<body>
+    <div class="panel">
+        <div class="floor-buttons">
+            <button class="button left active">1</button>
+            <button class="button right" value="2">2</button>
+            <button class="button left">3</button>
+            <button class="button right">4</button>
+            <button class="button left">5</button>
+            <button class="button right">6</button>
+            <button class="button left">7</button>
+            <button class="button right">8</button>
+            <button class="button left">9</button>
+            <button class="button right">10</button>
+        </div>
+        <div class="menu-buttons">
+            <button class="button button-go">Go!</button>
+            <button class="button button-stop">Stop</button>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    $('.floor-buttons .button').click(function () {
+
+        if($(this).text() == 'Stop'){
+            alert('Emergency stop!');
+        }
+        if($(this).hasClass('active')) {
+            alert('You are already at this floor');
+        } else {
+            if(!$('.floor-buttons .button').hasClass('destination')){
+                $(this).addClass('destination')
+            } else {
+                $('.floor-buttons .button').removeClass('destination');
+                $(this).addClass('destination');
+            }
+            //var a = $(this).text();
+        }
+    });
+    $('.button-go').click(function () {
+        if(!$('.floor-buttons').find('.active') || !$('.floor-buttons .button').hasClass('destination')){
+            alert('What floor do you wanna go? Please, select the floor')
+        }
+            var a = $('.floor-buttons').find('.active').text();
+            var b = $('.floor-buttons').find('.destination').text();
+            $('.floor-buttons').find('.active').removeClass('active');
+
+            if (a < b){
+                for(a; a <= b; a++) {
+                        alert(a);
+                    setTimeout(function () {
+                        $('.floor-buttons .button').filter(function(){return this.value==a}).addClass('progress');
+                        if(a == b) {
+                            $('.floor-buttons .button').find(a).removeClass('destination');
+                            $('.floor-buttons .button').find(a).addClass('active');
+                        }
+                    }, 1000)
+                }
+            } else {
+                for(b; a <= b; b--) {
+
+                }
+            }
+    });
+</script>
